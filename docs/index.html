@@ -4,9 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
-
+    <title>test 3D</title>
     <style>
         .wrap {
             width: 100%;
@@ -20,17 +18,16 @@
             background-color: #efefef;
         }
     </style>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.js"></script>
+    <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
 </head>
 
 <body>
     <div class="wrap">
-        <model-viewer src="model-data/toaster.glb" ios-src="model-data/toaster.usdz" alt="test 3D anime" auto-rotate
-            camera-controls autoplay shadow-softness="0.5">
+        <model-viewer src="toaster.glb" alt="test 3D anime" auto-rotate camera-controls autoplay>
         </model-viewer>
     </div>
-    <!-- Import the component -->
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.js"></script>
-    <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+
 </body>
 
 </html>
