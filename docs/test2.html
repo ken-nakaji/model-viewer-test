@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test 3D</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0 0 64px;
+        }
+
+        .wrap {
+            width: 90vw;
+            height: 90vh;
+            margin: auto;
+            position: relative;
+        }
+
+        .wrap model-viewer {
+            width: 100%;
+            height: 100%;
+            background-color: #efefef;
+        }
+
+        .btn-container {
+            position: absolute;
+            padding: 12px 0;
+            bottom: 0;
+            top: 0;
+            left: 0;
+            width: 100px;
+            /* display: flex; */
+        }
+
+        .btn-action {
+            border: 1px solid #ccc;
+            margin: 0 0 8px;
+            font-size: 12px;
+            padding: 6px 12px;
+        }
+    </style>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.js"></script>
+    <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+</head>
+
+<body>
+    <div class="wrap">
+        <model-viewer id="modelViewer" src="./model-data/animetion-name.glb" ios-src="./model-data/animetion-name.usdz"
+            alt="test 3D anime" camera-controls shadow-intensity="0.5" autoplay animation-name="idle" ar>
+        </model-viewer>
+        <div class="btn-container">
+            <button id="act1" type="button" class="btn-action">action1</button>
+            <button id="act2" type="button" class="btn-action">action2</button>
+            <button id="act3" type="button" class="btn-action">action3</button>
+            <button id="act4" type="button" class="btn-action">reset</button>
+            <br><br>
+            <button id="act5" type="button" class="btn-action">|| pause</button>
+            <button id="act6" type="button" class="btn-action"> > play</button>
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            var modelViewer = document.querySelector('#modelViewer');
+            var btn1 = document.querySelector('#act1');
+            var btn2 = document.querySelector('#act2');
+            var btn3 = document.querySelector('#act3');
+            var btn4 = document.querySelector('#act4');
+            var btn5 = document.querySelector('#act5');
+            var btn6 = document.querySelector('#act6');
+            btn1.addEventListener("click", function () {
+                modelViewer.animationName = "CubeAction1";
+                console.log('CubeAction1 : ', modelViewer.animationName);
+            });
+            btn2.addEventListener("click", function () {
+                modelViewer.animationName = "CubeAction2";
+                console.log('CubeAction2 : ', modelViewer.animationName);
+            });
+            btn3.addEventListener("click", function () {
+                modelViewer.animationName = "Cubes-in-out";
+                console.log('Cubes-in-out : ', modelViewer.animationName);
+            });
+            btn4.addEventListener("click", function () {
+                modelViewer.animationName = "idle";
+                console.log('idle : ', modelViewer.animationName);
+            });
+            btn5.addEventListener("click", function () {
+                modelViewer.pause();
+            });
+            btn6.addEventListener("click", function () {
+                modelViewer.play();
+            });
+        }());
+    </script>
+</body>
+
+</html>
